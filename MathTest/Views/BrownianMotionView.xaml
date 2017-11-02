@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="MathTest.Views.BrownianMotionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MathTest.Views"
+             mc:Ignorable="d"              
+             xmlns:oxy="http://oxyplot.org/wpf"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <oxy:Plot Grid.Row="0" Title="Brownian Motion">
+            <oxy:Plot.Series>
+                <oxy:LineSeries ItemsSource="{Binding Points}" />
+            </oxy:Plot.Series>
+        </oxy:Plot>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Drift" Margin="5"/>
+            <TextBox Text="{Binding Drift}" Width="100" Margin="5"/>
+            <TextBlock Text="Vola" Margin="5"/>
+            <TextBox Text="{Binding Vola}" Width="100" Margin="5"/>
+            <TextBlock Text="Steps" Margin="5"/>
+            <TextBox Text="{Binding Steps}" Width="100" Margin="5"/>
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="Update" Command="{Binding UpdateCommand}" />
+    </Grid>
+</UserControl>
